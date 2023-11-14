@@ -22,6 +22,7 @@ import StockScreener from "./StockScreener";
 import logo from "./logo.svg";
 import Filter from "./Components/filter";
 import jsonData from "./Components/data.json";
+import { BiSearchAlt } from "react-icons/bi";
 
 const stockData = [
   { name: "NIFTY", price: 1500, change: 10 },
@@ -50,8 +51,10 @@ function StockTable() {
 
     // Use the dummy data as if it's coming from an API.
   }, []);
+  const newLocal =
+    "h-[100%] m-0  flex w-[100%] shadow-md rounded-br-xl border border-neutral-300 overflow-auto";
   return (
-    <div className="h-[100vh] flex flex-col">
+    <div className="App flex flex-col">
       {/* MARQUE TEXT START */}
       <div className="bg-black text-white">
         <nav>
@@ -128,10 +131,17 @@ function StockTable() {
       </nav>
 
       {/* STOCK CONTENTS AND DETAILS */}
-      <div className="p-3 h-full flex">
-        <Filter />
-        <div className="h-full w-[100%] shadow-md rounded-e-xl border border-slate-300 overflow-auto">
-          <StockScreener />
+      <div className="h-screen p-3">
+        <textarea
+          placeholder={`🔍 Type Your Query Here`}
+          className="w-full p-1 pl-3 focus:outline-none border border-neutral-300 rounded-t-md"
+          rows={1}
+        />
+        <div className="pb-3 max-h-full h-full  flex">
+          <Filter />
+          <div className={newLocal}>
+            <StockScreener />
+          </div>
         </div>
       </div>
     </div>

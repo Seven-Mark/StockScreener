@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Type from "./type";
-
+import { MdExpandMore, MdExpandLess } from "react-icons/md";
 export default function Category(props) {
   const [open, setOpen] = useState(false);
   const [filterData, setFilterData] = useState({});
@@ -12,8 +12,14 @@ export default function Category(props) {
   const [isChecked, setCheck] = useState(false);
 
   return (
-    <div className="w-full">
-      <div className="flex p-2 border-b border-slate-300 justify-between">
+    <div
+      className={` px-2 border-b border-1 hover:bg-slate-50
+       border-neutral-200  w-full ${open === true ? "bg-slate-50" : ""}`}
+    >
+      <div
+        onClick={() => setOpen(!open)}
+        className="cursor-pointer flex p-2 justify-between "
+      >
         <h1>
           <div>
             {props.isSub === true ? (
@@ -31,16 +37,29 @@ export default function Category(props) {
             ) : (
               ""
             )}
-            {props.title}
+            <div
+              className={`p-1 inline-block ${
+                props.isSub === true
+                  ? "font-light text-slate-600"
+                  : "font-semibold"
+              }
+              `}
+            >
+              {props.title}
+            </div>
           </div>
         </h1>
-        <div onClick={() => setOpen(!open)} className="cursor-pointer pr-2">
-          {open === true ? "-" : "+"}
+        <div className="flex items-center">
+          {open === true ? (
+            <MdExpandLess />
+          ) : (
+            <MdExpandMore className="text-xl text-slate-400" />
+          )}
         </div>
       </div>
       <div
-        className={`p-2 border-b border-slate-300 ${
-          open === true ? "" : "hidden"
+        className={`p-2 border-b border-neutral-300 ${
+          open === true ? "bg-slate-50" : "hidden"
         }`}
       >
         <Type

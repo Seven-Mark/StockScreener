@@ -21,18 +21,18 @@ export default function Filter() {
     );
   });
   return (
-    <div className="flex flex-col h-full w-[300px] shadow-md rounded-s-xl border border-slate-300 overflow-scroll relative">
-      <div className="p-4 shadow-sm border-b border-slate-300">
+    <div className="text-sm flex flex-col h-full w-[350px] shadow-md rounded-bl-xl border border-neutral-300 overflow-scroll relative">
+      <div className="p-4 shadow-sm border-b border-neutral-300">
         <h1 className=" font-bold ">Screener</h1>
-        <input
+        {/* <input
           ref={queryBox}
           placeholder="Type Your Query"
           type="text"
-          className="p-1 w-full my-3 focus:outline-none border border-slate-400 rounded-md"
-        />
+          className="p-1 w-full my-3 focus:outline-none border border-neutral-400 rounded-md"
+        /> */}
       </div>
       <div className="h-full   overflow-scroll relative">{items}</div>
-      <div className="bg-white w-full shadow-md border border-slate-300">
+      <div className="bg-white w-full shadow-md border border-neutral-300">
         <div
           onClick={() => {
             updateFilterData["query"] = queryBox.current.value;
@@ -40,7 +40,7 @@ export default function Filter() {
           }}
           className="bg-[black] cursor-pointer text-white p-3 m-5 text-center rounded-md"
         >
-          + Apply Filters
+          Apply Filters
         </div>
       </div>
     </div>

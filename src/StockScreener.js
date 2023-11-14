@@ -12,7 +12,7 @@ const StockScreener = () => {
   console.log(stockData);
 
   return (
-    <div className="h-[100%] w-full p-4 overflow-auto">
+    <div className="h-full w-full p-4 overflow-scroll">
       <div className="overflow-x-auto">
         <table className="min-w-full table-auto">
           <thead>
