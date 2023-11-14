@@ -9,13 +9,20 @@ export default function Type(props) {
     return (
       <div className="flex gap-5 leading-loose">
         <input
+          id={option.option}
           onChange={() => {
             setCheck(!isChecked);
             props.updateFunc(option.option, !isChecked);
           }}
           type="checkbox"
+          className="border-sizing cursor-pointer focus:outline-none border-4 border-sky-500"
         />
-        <p>{option.option}</p>
+        <label
+          for={option.option}
+          className="cursor-pointer font-light text-slate-600 "
+        >
+          {option.option}
+        </label>
       </div>
     );
   };
@@ -58,7 +65,7 @@ export default function Type(props) {
           ref={start}
           onChange={() => updateRange(start.current.value, end.current.value)}
           type="number"
-          className="p-1 w-[40%] focus:outline-none border border-slate-400 rounded-md"
+          className="p-1 w-[40%] focus:outline-none border border-neutral-400 rounded-md"
         />
         {"  "}
         to{"  "}
@@ -66,7 +73,7 @@ export default function Type(props) {
           ref={end}
           onChange={() => updateRange(start.current.value, end.current.value)}
           type="number"
-          className="p-1 w-[40%] focus:outline-none border border-slate-400 rounded-md"
+          className="p-1 w-[40%] focus:outline-none border border-neutral-400 rounded-md"
         />
       </div>
     );
@@ -98,5 +105,5 @@ export default function Type(props) {
       return newObj;
     }
   };
-  return <div>{findSub(props.type, props.data)}</div>;
+  return <div className="px-2">{findSub(props.type, props.data)}</div>;
 }
