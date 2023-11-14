@@ -22,7 +22,13 @@ import StockScreener from "./StockScreener";
 import logo from "./logo.svg";
 import Filter from "./Components/filter";
 import jsonData from "./Components/data.json";
-import { BiSearchAlt } from "react-icons/bi";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleNodes,
+  faUser,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 
 const stockData = [
   { name: "NIFTY", price: 1500, change: 10 },
@@ -51,10 +57,8 @@ function StockTable() {
 
     // Use the dummy data as if it's coming from an API.
   }, []);
-  const newLocal =
-    "h-[100%] m-0  flex w-[100%] shadow-md rounded-br-xl border border-neutral-300 overflow-auto";
   return (
-    <div className="App flex flex-col">
+    <div className="h-full flex flex-col">
       {/* MARQUE TEXT START */}
       <div className="bg-black text-white">
         <nav>
@@ -107,7 +111,7 @@ function StockTable() {
             {/* search box */}
             <div class="flex items-center space-x-2">
               <div class="text-white">
-                <i class="fas fa-search"></i>
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
               </div>
               <input
                 type="text"
@@ -120,10 +124,10 @@ function StockTable() {
             {/* Last section */}
             <div class="flex space-x-4">
               <a href="#" class="text-white">
-                Social
+                <FontAwesomeIcon icon={faCircleNodes} /> Social
               </a>
               <a href="#" class="text-white">
-                Login
+                <FontAwesomeIcon icon={faUser} /> Login
               </a>
             </div>
           </div>
@@ -139,7 +143,7 @@ function StockTable() {
         />
         <div className="pb-3 max-h-full h-full  flex">
           <Filter />
-          <div className={newLocal}>
+          <div className="h-full w-[100%] shadow-md rounded-e-xl border border-slate-300 overflow-auto">
             <StockScreener />
           </div>
         </div>
