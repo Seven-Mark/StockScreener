@@ -58,7 +58,7 @@ export default function Category(props) {
         </div>
       </div>
       <div
-        className={`p-2 border-b border-neutral-300 ${
+        className={`pb-3 px-2 border-b border-neutral-300 ${
           open === true ? "bg-slate-50" : "hidden"
         }`}
       >
